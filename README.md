@@ -33,6 +33,53 @@
 - Lombok
 - Docker & Docker Compose
 
+## 📁 클로드 활용 관련 프로젝트 구조 정리
+./.claude/agents : 서브에이전트 경로
+./.claude/commands : 커스텀 명령어 
+./.claude/SKILLS : 커스텀 스킬 
+./.claude/SKILLS/requirements-annlysis : 요구사항 분석 커스텀 스킬
+./.claude/hooks/: 커스텀 훅 쉘스크립트
+./.claude/settings.json : 클로드 설정 및 훅 설정
+
+
+```
+claude-code-study01/
+├── README.md
+└── genious-api/                          # Spring Boot 백엔드 프로젝트
+    ├── CLAUDE.md                         # AI 어시스턴트용 프로젝트 컨텍스트
+    ├── build.gradle                      # Gradle 빌드 설정
+    ├── settings.gradle
+    ├── .claude/                          # Claude Code 설정
+    │   ├── agents/                       # Sprint별 에이전트 가이드
+    │   │   ├── sprint-orchestrator.md
+    │   │   ├── sprint1-user-auth.md
+    │   │   ├── sprint2-product.md
+    │   │   ├── sprint3-inventory.md
+    │   │   ├── sprint4-cart-wishlist.md
+    │   │   ├── sprint5-order.md
+    │   │   ├── sprint6-payment.md
+    │   │   ├── sprint7-review.md
+    │   │   ├── sprint8-admin.md
+    │   │   └── sprint9-testing.md
+    │   ├── commands/                     # 커스텀 명령어
+    │   │   ├── plan.md
+    │   │   └── tdd.md
+    │   ├── hooks/                        # 커스텀 훅 쉘 스크립트
+    │   │   ├── run-feature-tests.sh      # 테스트 코드 실행 쉘
+    │   │   └── update-task-progress.sh   # task 업데이트 쉘
+    │   └── SKILLS/                       # 커스텀 스킬
+    │   │   └── requirements-analysis/
+    │   └──settings.json                  # 훅관련설정
+    |   ...
+    ├── 사용자관리_요구사항.md
+    ├── 사용자관리_PLAN.md
+    ├── 사용자관리_TASK.md
+    ├── 전체_요구사항.md
+    ├── 전체_요구사항_분석.md
+    ├── 전체_TASK.md
+    └── 전체_프로젝트 구조.md
+```
+
 ## 📁 프로젝트 구조
 
 ```
@@ -58,7 +105,8 @@ claude-code-study01/
     │   │   ├── plan.md
     │   │   └── tdd.md
     │   └── SKILLS/                       # 커스텀 스킬
-    │       └── requirements-analysis/
+    │   │   └── requirements-analysis/
+    │   └──settings.json                  # 훅관련설정
     ├── src/
     │   ├── main/
     │   │   ├── java/com/genious/api/
