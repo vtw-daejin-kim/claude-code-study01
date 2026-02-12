@@ -40,6 +40,7 @@
 ./.claude/SKILLS/requirements-annlysis : 요구사항 분석 커스텀 스킬
 ./.claude/hooks/: 커스텀 훅 쉘스크립트
 ./.claude/settings.json : 클로드 설정 및 훅 설정
+./CLAUDE.md : 어시스턴트용 프로젝트 컨텍스트
 
 
 ```
