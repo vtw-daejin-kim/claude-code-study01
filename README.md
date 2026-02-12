@@ -2,18 +2,6 @@
 
 클로드 코드 연습을 위한 레포지토리입니다.
 
-## 📋 프로젝트 개요
-
-**Genious E-commerce API** - Spring Boot 기반의 E-commerce 플랫폼 백엔드 REST API 서버
-
-### 핵심 기능
-- 사용자 인증/인가 (JWT 기반)
-- 상품 관리 및 조회
-- 장바구니 관리
-- 주문 및 결제 처리
-- 재고 관리
-- 상품 리뷰 시스템
-
 ## 🛠 기술 스택
 
 ### Backend
@@ -33,6 +21,13 @@
 - Lombok
 - Docker & Docker Compose
 
+## 📚 문서
+
+- [CLAUDE.md](./genious-api/CLAUDE.md) - AI 어시스턴트용 프로젝트 상세 컨텍스트
+- [전체_요구사항.md](./genious-api/전체_요구사항.md) - 프로젝트 요구사항 명세
+- [전체_요구사항_분석.md](./genious-api/전체_요구사항_분석.md) - 요구사항 분석 및 다이어그램
+- [전체_프로젝트 구조.md](./genious-api/전체_프로젝트%20구조.md) - 아키텍처 설계 문서
+
 ## 📁 클로드 활용 관련 프로젝트 구조 정리
 ./.claude/agents : 서브에이전트 경로
 ./.claude/commands : 커스텀 명령어 
@@ -41,7 +36,6 @@
 ./.claude/hooks/: 커스텀 훅 쉘스크립트
 ./.claude/settings.json : 클로드 설정 및 훅 설정
 ./CLAUDE.md : 어시스턴트용 프로젝트 컨텍스트
-
 
 ```
 claude-code-study01/
@@ -252,80 +246,6 @@ graph TD
     style Review fill:#ede7f6
 ```
 
-## 🚀 시작하기
 
-### 필수 요구사항
-- Java 17+
-- Docker & Docker Compose
-- Gradle 8.x
 
-### 로컬 실행
 
-```bash
-# 1. 저장소 클론
-git clone https://github.com/dd-jiny/claude-code-test01.git
-cd claude-code-study01/genious-api
-
-# 2. PostgreSQL + Redis 실행 (Docker)
-docker-compose up -d
-
-# 3. 애플리케이션 실행
-./gradlew bootRun
-
-# 4. API 문서 확인
-open http://localhost:8080/swagger-ui.html
-```
-
-### 테스트 실행
-
-```bash
-./gradlew test
-```
-
-### 빌드
-
-```bash
-./gradlew clean build
-```
-
-## 📊 개발 현황
-
-### ✅ 완료
-- [x] Spring Boot 프로젝트 초기 설정
-- [x] 기본 패키지 구조 구성
-- [x] BaseEntity, 공통 예외 처리
-- [x] application.yml 환경별 프로파일 설정
-- [x] 요구사항 분석 및 설계 문서화
-
-### 🔄 진행 중 (Sprint 1 - 사용자 인증)
-- [ ] JWT 인증 시스템
-- [ ] Spring Security 설정
-- [ ] User 엔티티 및 Repository
-- [ ] 회원가입/로그인 API
-
-### ⏳ 예정
-- Sprint 2: 상품 도메인
-- Sprint 3: 재고 도메인
-- Sprint 4: 장바구니 & 위시리스트
-- Sprint 5: 주문 도메인
-- Sprint 6: 결제 도메인
-- Sprint 7: 리뷰 도메인
-- Sprint 8: 관리자 기능
-- Sprint 9: 통합 테스트
-
-## 📚 문서
-
-- [CLAUDE.md](./genious-api/CLAUDE.md) - AI 어시스턴트용 프로젝트 상세 컨텍스트
-- [전체_요구사항.md](./genious-api/전체_요구사항.md) - 프로젝트 요구사항 명세
-- [전체_요구사항_분석.md](./genious-api/전체_요구사항_분석.md) - 요구사항 분석 및 다이어그램
-- [전체_프로젝트 구조.md](./genious-api/전체_프로젝트%20구조.md) - 아키텍처 설계 문서
-
-## 🔗 참고 링크
-
-- [GitHub Repository](https://github.com/dd-jiny/claude-code-test01.git)
-- [Spring Boot 공식 문서](https://spring.io/projects/spring-boot)
-- [Spring Security 문서](https://spring.io/projects/spring-security)
-
-## 📝 라이선스
-
-이 프로젝트는 학습 목적으로 만들어졌습니다.
