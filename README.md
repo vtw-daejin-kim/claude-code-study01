@@ -143,16 +143,3 @@ kr.go.ecommerce
 | 6 | Order 도메인 (주문, 재고 예약, 만료 배치) | 예정 |
 | 7 | Stats 도메인 (관리자 통계) | 예정 |
 | 8 | 테스트 하드닝 및 코드 품질 점검 | 예정 |
-
-## 로컬 실행
-
-```bash
-# PostgreSQL 실행
-docker compose up -d
-
-# 빌드 및 실행
-./gradlew bootRun
-
-# 전체 테스트 (Docker 필요 — Testcontainers)
-./gradlew test
-```
