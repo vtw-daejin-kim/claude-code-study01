@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:15-alpine:///ecommerce_test
+    username: test
+    password: test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    clean-disabled: false
+
+jwt:
+  secret: test-secret-key-that-is-at-least-256-bits-long-for-hs256-algorithm-testing
+  expiration-ms: 3600000
+
+logging:
+  level:
+    kr.go.ecommerce: DEBUG
+    org.testcontainers: INFO

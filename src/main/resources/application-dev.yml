@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/ecommerce}
+    username: ${DB_USERNAME:ecommerce}
+    password: ${DB_PASSWORD:ecommerce1234}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    kr.go.ecommerce: INFO
+    org.hibernate.SQL: WARN
