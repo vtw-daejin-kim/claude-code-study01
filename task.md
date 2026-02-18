@@ -5,81 +5,101 @@
 
 ---
 
-## Phase 0: 프로젝트 스캐폴딩
+## Phase 0: 프로젝트 스캐폴딩 ✅
 
 ### 프로젝트 초기화
-- [ ] Spring Boot 3.x + Gradle 프로젝트 생성
-- [ ] `build.gradle` 의존성 설정
-  - [ ] spring-boot-starter-web
-  - [ ] spring-boot-starter-data-jpa
-  - [ ] spring-boot-starter-security
-  - [ ] spring-boot-starter-validation
-  - [ ] mybatis-spring-boot-starter 3.x
-  - [ ] postgresql driver
-  - [ ] flyway-core + flyway-database-postgresql
-  - [ ] jjwt-api / jjwt-impl / jjwt-jackson (0.12.x)
-  - [ ] lombok
-  - [ ] spring-boot-starter-test + testcontainers
-- [ ] `settings.gradle` 설정
-- [ ] `.gitignore` 생성
-- [ ] `docker-compose.yml` 생성 (PostgreSQL)
+- [x] Spring Boot 3.x + Gradle 프로젝트 생성
+- [x] `build.gradle` 의존성 설정
+  - [x] spring-boot-starter-web
+  - [x] spring-boot-starter-data-jpa
+  - [x] spring-boot-starter-security
+  - [x] spring-boot-starter-validation
+  - [x] mybatis-spring-boot-starter 3.x
+  - [x] postgresql driver
+  - [x] flyway-core + flyway-database-postgresql
+  - [x] jjwt-api / jjwt-impl / jjwt-jackson (0.12.x)
+  - [x] lombok
+  - [x] spring-boot-starter-test + testcontainers
+- [x] `settings.gradle` 설정
+- [x] `.gitignore` 생성
+- [x] `docker-compose.yml` 생성 (PostgreSQL)
 
 ### 설정 파일
-- [ ] `application.yml` 기본 설정
-- [ ] `application-local.yml` 로컬 프로파일
-- [ ] `application-dev.yml` 개발 프로파일
-- [ ] `application-prod.yml` 운영 프로파일
+- [x] `application.yml` 기본 설정
+- [x] `application-local.yml` 로컬 프로파일
+- [x] `application-dev.yml` 개발 프로파일
+- [x] `application-prod.yml` 운영 프로파일
+- [x] `application-test.yml` 테스트 프로파일 (Testcontainers)
 
 ### DB 마이그레이션
-- [ ] `V1__init_schema.sql` — 전체 DDL 작성
-  - [ ] `users` 테이블
-  - [ ] `brands` 테이블
-  - [ ] `products` 테이블
-  - [ ] `product_stock` 테이블
-  - [ ] `product_revisions` 테이블
-  - [ ] `likes` 테이블
-  - [ ] `cart_items` 테이블
-  - [ ] `orders` 테이블
-  - [ ] `order_items` 테이블
-  - [ ] `order_cart_restore` 테이블
-  - [ ] 인덱스 (partial index 포함)
-  - [ ] CHECK 제약조건
-- [ ] `V2__seed_admin_user.sql` — 개발용 관리자 계정
+- [x] `V1__init_schema.sql` — 전체 DDL 작성
+  - [x] `users` 테이블
+  - [x] `brands` 테이블
+  - [x] `products` 테이블
+  - [x] `product_stock` 테이블
+  - [x] `product_revisions` 테이블
+  - [x] `likes` 테이블
+  - [x] `cart_items` 테이블
+  - [x] `orders` 테이블
+  - [x] `order_items` 테이블
+  - [x] `order_cart_restore` 테이블
+  - [x] 인덱스 (partial index 포함)
+  - [x] CHECK 제약조건
+- [x] `V2__seed_admin_user.sql` — 개발용 관리자 계정
 
 ### 글로벌 인프라 (global/)
-- [ ] 예외 처리
-  - [ ] `ErrorCode` enum 정의
-  - [ ] `BusinessException` 기본 예외 클래스
-  - [ ] `EntityNotFoundException`
-  - [ ] `DuplicateException`
-  - [ ] `StockInsufficientException`
-  - [ ] `InvalidStateException`
-  - [ ] `GlobalExceptionHandler` (@RestControllerAdvice)
-- [ ] 공통 응답 DTO
-  - [ ] `ApiResponse<T>` (성공 래퍼)
-  - [ ] `ErrorResponse` (에러 래퍼)
-  - [ ] `PageResponse<T>` (페이지네이션 래퍼)
-  - [ ] `FieldError`
-- [ ] 보안 설정
-  - [ ] `SecurityConfig` (필터 체인, 경로별 권한)
-  - [ ] `JwtConfig` (속성 바인딩)
-  - [ ] `JwtTokenProvider` (토큰 생성/검증/파싱)
-  - [ ] `JwtAuthenticationFilter` (OncePerRequestFilter)
-  - [ ] `CustomUserDetails`
-  - [ ] `CustomUserDetailsService`
-- [ ] 설정 클래스
-  - [ ] `MyBatisConfig`
-  - [ ] `JpaConfig`
-  - [ ] `WebMvcConfig`
-  - [ ] `SchedulerConfig` (@EnableScheduling)
-- [ ] 유틸리티
-  - [ ] `SecurityUtil` (현재 사용자 ID 추출)
-  - [ ] `JsonSnapshotUtil` (스냅샷 JSON 직렬화)
+- [x] 예외 처리
+  - [x] `ErrorCode` enum 정의
+  - [x] `BusinessException` 기본 예외 클래스
+  - [x] `EntityNotFoundException`
+  - [x] `DuplicateException`
+  - [x] `StockInsufficientException`
+  - [x] `InvalidStateException`
+  - [x] `GlobalExceptionHandler` (@RestControllerAdvice)
+- [x] 공통 응답 DTO
+  - [x] `ApiResponse<T>` (성공 래퍼)
+  - [x] `ErrorResponse` (에러 래퍼)
+  - [x] `PageResponse<T>` (페이지네이션 래퍼)
+  - [x] `FieldError`
+- [x] 보안 설정
+  - [x] `SecurityConfig` (필터 체인, 경로별 권한)
+  - [x] `JwtConfig` (속성 바인딩) — `@Value`로 JwtTokenProvider에 직접 주입 방식으로 구현
+  - [x] `JwtTokenProvider` (토큰 생성/검증/파싱)
+  - [x] `JwtAuthenticationFilter` (OncePerRequestFilter)
+  - [x] `CustomUserDetails`
+  - [x] `CustomUserDetailsService`
+- [x] 설정 클래스
+  - [x] `MyBatisConfig`
+  - [x] `JpaConfig`
+  - [x] `WebMvcConfig`
+  - [x] `SchedulerConfig` (@EnableScheduling)
+- [x] 유틸리티
+  - [x] `SecurityUtil` (현재 사용자 ID 추출)
+  - [x] `JsonSnapshotUtil` (스냅샷 JSON 직렬화)
+
+### 테스트 인프라
+- [x] `IntegrationTestBase` (Testcontainers PostgreSQL 공유 컨테이너)
+- [x] `FlywayMigrationTest` (스키마 검증 7개 테스트 메서드)
+- [x] `ErrorCodeTest` (HTTP 상태 매핑, 코드 유일성, 메시지 검증)
+- [x] `BusinessExceptionTest` (예외 계층 동작 검증)
+- [x] `GlobalExceptionHandlerTest` (BusinessException, Validation, 일반 예외 핸들링)
+- [x] `ApiResponseTest` (success, created 팩토리 메서드)
+- [x] `ErrorResponseTest` (of 팩토리 메서드, fieldErrors)
+- [x] `PageResponseTest` (Spring Page, MyBatis 스타일)
+- [x] `JwtTokenProviderTest` (생성, 추출, 검증, 변조/만료/null 거부)
+- [x] `CustomUserDetailsTest` (userId/role 노출, ROLE_ 접두사, 계정 상태)
+- [x] `JwtAuthenticationFilterTest` (Bearer 토큰, 헤더 없음, Basic 스킴)
+- [x] `SecurityConfigTest` (Public/Protected/Admin 엔드포인트 권한 검증)
+- [x] `SecurityUtilTest` (userId/role 추출, 인증 없을 때 예외)
+- [x] `JsonSnapshotUtilTest` (직렬화, 역직렬화, null, round-trip)
+- [x] `JpaConfigTest` (JPA Auditing 활성화)
+- [x] `MyBatisConfigTest` (SqlSessionFactory 설정)
+- [x] `FullContextBootTest` (전체 컨텍스트 부팅)
 
 ### 검증
-- [ ] 애플리케이션 부팅 확인
-- [ ] Flyway 마이그레이션 실행 확인
-- [ ] JWT 토큰 발급/검증 단위 테스트
+- [x] 애플리케이션 부팅 확인 (FullContextBootTest)
+- [x] Flyway 마이그레이션 실행 확인 (FlywayMigrationTest)
+- [x] JWT 토큰 발급/검증 단위 테스트 (JwtTokenProviderTest)
 
 ---
 
