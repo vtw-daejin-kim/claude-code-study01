@@ -6,6 +6,47 @@
 
 ## 이 프로젝트에서 다루는 Claude Code 기능
 
+### `.claude/` 디렉터리 구조
+
+프로젝트 루트의 `.claude/` 디렉터리에 Claude Code의 설정 파일들이 위치합니다.
+
+```
+.claude/
+├── settings.json                  # 프로젝트 범위 설정 (Hooks 이벤트 바인딩)
+├── hooks/
+│   └── notify.sh                  # WSL2→Windows 데스크톱 알림 스크립트
+├── agents/                        # Sub-Agent 정의 (도메인별 전문 에이전트)
+│   ├── sub-agent-architect.md     #   프로젝트 분석 → 에이전트 구성 설계
+│   ├── project-scaffolding.md     #   Phase 0: 프로젝트 초기화, 글로벌 인프라
+│   ├── user-domain.md             #   Phase 1: 회원가입/로그인/프로필
+│   ├── brand-domain.md            #   Phase 2: 브랜드 CRUD
+│   ├── product-domain.md          #   Phase 3: 상품/재고 관리
+│   ├── like-cart-domain.md        #   Phase 4~5: 좋아요/장바구니
+│   ├── order-domain.md            #   Phase 6: 주문/만료 배치
+│   ├── stats-domain.md            #   Phase 7: 관리자 통계 대시보드
+│   └── test-quality.md            #   Phase 8: E2E 테스트, 코드 품질 점검
+├── agent-memory/                  # Sub-Agent 전용 메모리 (세션 간 지식 유지)
+│   └── sub-agent-architect/
+│       ├── MEMORY.md              #     핵심 요약 (시스템 프롬프트에 포함)
+│       ├── project-analysis.md    #     프로젝트 분석 결과
+│       └── agent-configs.md       #     에이전트 구성 설계 내역
+├── SKILLS/                        # Custom Slash Commands (재사용 가능한 스킬)
+│   └── requirements-analysis/
+│       └── SKILL.md               #     /requirements-analysis 스킬 정의
+└── commands/                      # Custom Slash Commands (레거시 방식, 현재 비어 있음)
+```
+
+각 디렉터리의 역할은 다음과 같습니다.
+
+| 경로 | 역할 |
+|---|---|
+| `settings.json` | 프로젝트 범위의 Claude Code 설정. Hook 이벤트(Stop, Notification, PostToolUse, TaskCompleted)별 실행할 커맨드를 정의 |
+| `hooks/` | Hook에서 실행되는 스크립트. `notify.sh`는 WSL2 환경에서 `powershell.exe`를 호출하여 Windows 토스트 알림 전송 |
+| `agents/` | Sub-Agent 정의 파일. 각 `.md` 파일이 하나의 전문 에이전트로, Task 도구 호출 시 `subagent_type`으로 지정하여 사용 |
+| `agent-memory/` | Sub-Agent가 세션 간에 학습한 지식을 저장하는 영속 메모리. `MEMORY.md`는 시스템 프롬프트에 자동 포함 |
+| `SKILLS/` | `/명령어` 형태로 호출 가능한 커스텀 스킬. `SKILL.md`의 frontmatter에 이름과 설명을 정의 |
+| `commands/` | 커스텀 슬래시 커맨드의 레거시 방식 디렉터리 (현재 미사용, SKILLS로 대체) |
+
 ### 1. CLAUDE.md — 프로젝트 컨텍스트 공유
 
 프로젝트 루트의 [`CLAUDE.md`](./CLAUDE.md)에 기술 스택, 아키텍처, 설계 원칙, 빌드 명령어 등을 기술하여 Claude Code가 프로젝트 맥락을 이해한 상태에서 작업하도록 합니다.
